@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+ 
+
+<mapper namespace="mapper.memberMapper">	
+	
+	
+	<insert id="insertMember">
+	insert into SNS_TEST(USER_ID, USER_PW, USER_NAME) values(#{user_id},#{user_pw},#{user_name})
+			
+	</insert>
+	
+</mapper>
