@@ -20,12 +20,7 @@ public class DAOtest {
 	public void testInsertMember()throws Exception{
 		MemberVO vo = new MemberVO();
 		
-		vo.setUser_id("koreaa8");
-		vo.setUser_name("리경태");
-		vo.setUser_pw("1234");
-		vo.setUser_email("123@google.com");
-		
-		
+		vo.setUser_id("kk");
 		
 		System.out.println("====================삽입전====================");
 		//memberDao.selectUser(vo);
