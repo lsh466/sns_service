@@ -7,12 +7,6 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 <mapper namespace="mapper.memberMapper">	
 	
 	<insert id="insertMember">
-INSERT INTO USER_INFO(user_id) VALUES(#{User_id});
-			
+		INSERT INTO USER_INFO(user_id, user_name, user_email, user_pw, date) VALUES(#{userid}, #{username}, #{useremail}, #{userpw}, #{Reg_date});
 	</insert>
-	
-	
-	<select id="selectUser">
-		SELECT * FROM USER_INFO WHERE =1;
-	</select>
 </mapper>

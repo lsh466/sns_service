@@ -20,10 +20,17 @@ public class DAOtest {
 	public void testInsertMember()throws Exception{
 		MemberVO vo = new MemberVO();
 		
-		vo.setUser_id("koreaa8");
-		vo.setUser_name("리경태");
-		vo.setUser_pw("1234");
-		vo.setUser_email("123@google.com");
+		vo.setUserid("koreaa8");
+		vo.setUsername("lee");
+		vo.setUserpw("1234");
+		vo.setUseremail("123@google.com");
+		java.util.Date dt = new java.util.Date();
+
+		java.text.SimpleDateFormat sdf = 
+		     new java.text.SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+
+		String currentTime = sdf.format(dt);
+		vo.setReg_date(currentTime);
 		
 		
 		

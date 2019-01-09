@@ -8,7 +8,7 @@ public class MemberVO {
 	private String userid;
 	private String useremail;
 	private String userpw;
-	private Date Reg_date;
+	private String Reg_date;
 	
 	
 	public String getUsername() {
@@ -35,10 +35,10 @@ public class MemberVO {
 	public void setUserpw(String userpw) {
 		this.userpw = userpw;
 	}
-	public Date getReg_date() {
+	public String getReg_date() {
 		return Reg_date;
 	}
-	public void setReg_date(Date reg_date) {
+	public void setReg_date(String reg_date) {
 		Reg_date = reg_date;
 	}
 }

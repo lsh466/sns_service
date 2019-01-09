@@ -20,10 +20,10 @@ public class MemberDAOImpl implements memberDAO{
 	public void insertMember(MemberVO vo) {
 		// TODO Auto-generated method stub
 		System.out.println("들어왔다");
-		System.out.println(vo.getUser_id());
-		System.out.println(vo.getUser_name());
-		System.out.println(vo.getUser_pw());
-		System.out.println(vo.getUser_email());
+		System.out.println(vo.getUserid());
+		System.out.println(vo.getUsername());
+		System.out.println(vo.getUserpw());
+		System.out.println(vo.getUseremail());
 		
 		sqlSession.insert(namespace+".insertMember",vo);
 		System.out.println("end");
