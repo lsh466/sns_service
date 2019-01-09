@@ -19,7 +19,7 @@ public class DAOtest {
 	@Test
 	public void testInsertMember()throws Exception{
 		MemberVO vo = new MemberVO();
-		
+
 		vo.setUserid("koreaa8");
 		vo.setUsername("lee");
 		vo.setUserpw("1234");
@@ -31,8 +31,6 @@ public class DAOtest {
 
 		String currentTime = sdf.format(dt);
 		vo.setReg_date(currentTime);
-		
-		
 		
 		System.out.println("====================삽입전====================");
 		//memberDao.selectUser(vo);
