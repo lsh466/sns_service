@@ -6,10 +6,13 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
 <mapper namespace="mapper.memberMapper">	
 	
-	
 	<insert id="insertMember">
-	insert into SNS_TEST(USER_ID, USER_PW, USER_NAME) values(#{user_id},#{user_pw},#{user_name})
+INSERT INTO USER_INFO(user_id) VALUES(#{User_id});
 			
 	</insert>
 	
+	
+	<select id="selectUser">
+		SELECT * FROM USER_INFO WHERE =1;
+	</select>
 </mapper>

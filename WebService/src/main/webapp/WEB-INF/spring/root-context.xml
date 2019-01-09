@@ -31,7 +31,8 @@
     	<constructor-arg index="0" ref="sqlSessionFactory"/>
     </bean>
     
-    <bean id="memberDao" class="com.sns.webservice.MemberDAO"/>
+    
+    <bean id="memberDao" class="com.sns.webservice.MemberDAOImpl"/>
  
 	
 </beans>

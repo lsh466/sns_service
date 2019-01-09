@@ -1,6 +1,6 @@
 package com.sns.webservice;
 
-public interface Service {
-
+public interface memberDAO {
 	public void insertMember(MemberVO member);
+	public void selectUser(MemberVO member);
 }

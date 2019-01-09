@@ -13,11 +13,9 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 		locations= {"file:src/main/webapp/WEB-INF/spring/**/root-context.xml"})
 public class DAOtest {
 	@Inject
-	private Service service;
-	/*@Test
-	public void testTime()throws Exception{
-		System.out.println(dao.getTime());
-	}*/
+	private memberDAO memberDao;
+	
+	
 	@Test
 	public void testInsertMember()throws Exception{
 		MemberVO vo = new MemberVO();
@@ -25,9 +23,13 @@ public class DAOtest {
 		vo.setUser_id("koreaa8");
 		vo.setUser_name("리경태");
 		vo.setUser_pw("1234");
+		vo.setUser_email("123@google.com");
+		
+		
 		
 		System.out.println("====================삽입전====================");
-		service.insertMember(vo);
+		//memberDao.selectUser(vo);
+		memberDao.insertMember(vo);
 		System.out.println("====================삽입성공====================");
 	}
 }
