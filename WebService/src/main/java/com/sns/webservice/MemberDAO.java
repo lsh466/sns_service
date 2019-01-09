@@ -1,22 +1,17 @@
 package com.sns.webservice;
 
-import javax.inject.Inject;
-
 import org.apache.ibatis.session.SqlSession;
 
-public class MemberDAO implements Service{
-
-	@Inject
+public class MemberDAO {
 	private SqlSession sqlSession;
 	private static final String namespace = "mapper.memberMapper";
 	
-	@Override
+	
 	public void insertMember(MemberVO member) {
 		// TODO Auto-generated method stub
+		System.out.println("DAO까지 왔음");
 		sqlSession.insert(namespace+".insertMember",member);
 		System.out.println("들어갔다 왓음");
 		
 	}
-
-	
 }

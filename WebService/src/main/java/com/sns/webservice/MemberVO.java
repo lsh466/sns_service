@@ -3,7 +3,7 @@ package com.sns.webservice;
 import java.util.Date;
 
 public class MemberVO {
-		
+
 	private String User_name;
 	private String User_id;
 	private String User_email;
