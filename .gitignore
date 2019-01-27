@@ -1,0 +1,5 @@
+/test/.settings/*
+.classpath
+.project
+.springBeans
+WebService/test/.settings/
