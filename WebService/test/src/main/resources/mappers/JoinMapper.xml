@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+ 
+
+<mapper namespace="mapper.JoinMapper">	
+	
+	<select id="getid" resultType="Member.MemberDTO">
+		SELECT USERID,USERPW, USERNAME, EMAIL
+		FROM tb1_memeber
+		WHERE USERID = '1'
+	</select>
+	
+	
+	<!-- <insert id="insertMember">
+	insert into tb1_memeber(USERID, USERPW, USERNAME) values('3434','33','44')
+	</insert> -->
+	
+</mapper>

@@ -8,13 +8,14 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
-import Join.service.impl.ServiceImpl;
+import Join.service.JoinService;
+import Member.MemberDTO;
 
 @Controller
 public class JoinController {
 	
 	@Autowired
-	private ServiceImpl serviceimpl;
+	private JoinService joinservice;
 	
 	@RequestMapping(value = "/loginForm/MemberJoin.do")
 	public ModelAndView loginForm(HttpServletRequest request,HttpServletResponse response){
@@ -22,9 +23,10 @@ public class JoinController {
 		ModelAndView mav = new ModelAndView();
 		System.out.println(request.getParameter("id"));
 		
+		MemberDTO member = joinservice.getId(request.getParameter("id"));
+		System.out.println("찾아온 아이디 값은 : "+member.getId());
+		
 		mav.setViewName("login");
 		return mav;
-		
-	
 	}
 }

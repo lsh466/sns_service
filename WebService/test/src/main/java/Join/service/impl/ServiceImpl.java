@@ -1,25 +1,23 @@
 package Join.service.impl;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Repository;
+import javax.inject.Inject;
 
-import Join.service.Service;
+import org.springframework.stereotype.Service;
+
+import Join.service.JoinService;
 import Member.MemberDTO;
 
-@Repository
-public class ServiceImpl implements Service{
+@Service
+public class ServiceImpl implements JoinService{
 
-	
-	@Autowired
-	public ServiceImpl(){
-		
-	}
-
+	@Inject
+	private JoinDAO joindao;
 	//아이디 중복 확인하기
 	@Override
 	public MemberDTO getId(String id) {
-		// TODO Auto-generated method stub
-		return null;
+	
+		System.out.println("impl에서 id는 : "+id);
+		return joindao.getId(id);
 	}
 	
 	
