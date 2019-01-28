@@ -13,7 +13,7 @@ public class ServiceImpl implements JoinService{
 	private JoinDAO joindao;*/
 
 	@Autowired
-	private JoinDAO JoinDAO;
+	private JoinDAO joinDao;
 	
 	//아이디 중복 확인하기
 	@Override
@@ -21,7 +21,7 @@ public class ServiceImpl implements JoinService{
 	
 		System.out.println("impl에서 id는 : "+id);
 		//System.out.println("joindao()" +JoinDAO.toString());
-		return JoinDAO.getId(id);
+		return joinDao.getId(id);
 	}
 
 	@Override

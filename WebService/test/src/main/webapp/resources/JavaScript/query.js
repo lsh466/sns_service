@@ -46,15 +46,19 @@ function goReg(){
 	$.ajax({
 		async:false,
 		type:"GET",
-		dataType:"text",
+		dataType: "json",
 		url:"/loginForm/MemberJoin.do",
 		data:data,
 		success:function(result){
-			alert("회원가입 되었습니다");
-			location.href=result;
+			alert("성공입니다!");
+			alert(result.RESULT_CODE);
+			if(result.RESULT_CODE == "SUCCESS"){
+			location.href="login";
+			}
 		},
 		error:function(erro){
 			alert("아이디가 중복됩니다. 다시 입력해주세요");
+			alert(erro.RESULT_CODE);
 		}
 	});
 }

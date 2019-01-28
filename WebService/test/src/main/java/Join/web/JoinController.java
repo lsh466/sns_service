@@ -8,31 +8,34 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
-import Join.service.JoinService;
 import Join.service.impl.ServiceImpl;
+import Member.MemberDTO;
 
 @Controller
 public class JoinController {
 	
 	/*@Resource(name="JoinService")
 	private JoinService joinservice;*/
-
+	
 	@Autowired
-	private ServiceImpl ServiceImpl;
+	private ServiceImpl serviceImpl;
 	
 	@RequestMapping(value = "/loginForm/MemberJoin.do")
 	public ModelAndView loginForm(HttpServletRequest request,HttpServletResponse response){
 		
-		ModelAndView mav = new ModelAndView();
+		ModelAndView mav = new ModelAndView("jsonView");
 		System.out.println(request.getParameter("id"));
-		
-		String str = ServiceImpl.getId(request.getParameter("id"));
-		//joinservice.insert(member);
-		if(request.getParameter("id").equals(str) && str != null){
-		System.out.println("찾아온 아이디 값은 : "+str);
+		try{
+			String str = serviceImpl.getId(request.getParameter("id"));
+			//MemberDTO member = serviceImpl.getId(request.getParameter("id"));
+			if(request.getParameter("id").equals(str) && str != null){
+			System.out.println("찾아온 아이디 값은 : "+str);
+			}
+			System.out.println("끝");
+			mav.addObject("RESULT_CODE","SUCCESS");
+		}catch(Exception e){
+			mav.addObject("RESULT_CODE","FAILURE");
 		}
-		System.out.println("끝");
-		mav.setViewName("login");
 		return mav;
 	}
 }
