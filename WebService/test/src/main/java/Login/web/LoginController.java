@@ -9,7 +9,7 @@ public class LoginController {
 
 	@RequestMapping(value = "/loginForm.do", method = RequestMethod.GET)
 	public String loginForm(){
-		System.out.println("LoginController");
+		System.out.println("===============LoginController()=============");
 		return "loginForm";
 	}
 }

@@ -22,6 +22,7 @@ $(document).ready( function(){
 function Reg(){
 	document.location.href = "loginForm.do";
 }
+
 function goReg(){
 	var data={};
 	data = $("#dataFrm").serialize();
@@ -50,15 +51,15 @@ function goReg(){
 		url:"/loginForm/MemberJoin.do",
 		data:data,
 		success:function(result){
-			alert("성공입니다!");
-			alert(result.RESULT_CODE);
+			alert("회원가입이 됐습니다!");
 			if(result.RESULT_CODE == "SUCCESS"){
-			location.href="login";
+			location.href="";
 			}
 		},
 		error:function(erro){
-			alert("아이디가 중복됩니다. 다시 입력해주세요");
-			alert(erro.RESULT_CODE);
+			if(erro.RESULT_CODE == "FAILURE"){
+				alert("아이디가 중복됩니다. 다시 입력해주세요");
+			}
 		}
 	});
 }

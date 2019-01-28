@@ -23,15 +23,16 @@ public class JoinController {
 	@RequestMapping(value = "/loginForm/MemberJoin.do")
 	public ModelAndView loginForm(HttpServletRequest request,HttpServletResponse response){
 		
-		ModelAndView mav = new ModelAndView("jsonView");
-		System.out.println(request.getParameter("id"));
+		System.out.println("==============JoinController()==========");
+		ModelAndView mav = new ModelAndView();
+		mav.setViewName("jsonView");
+		
 		try{
 			String str = serviceImpl.getId(request.getParameter("id"));
 			//MemberDTO member = serviceImpl.getId(request.getParameter("id"));
 			if(request.getParameter("id").equals(str) && str != null){
 			System.out.println("찾아온 아이디 값은 : "+str);
 			}
-			System.out.println("끝");
 			mav.addObject("RESULT_CODE","SUCCESS");
 		}catch(Exception e){
 			mav.addObject("RESULT_CODE","FAILURE");
