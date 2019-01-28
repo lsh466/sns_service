@@ -3,5 +3,6 @@ package Join.service;
 import Member.MemberDTO;
 
 public interface JoinService {
-	public MemberDTO getId(String id);
+	public String getId(String id);
+	public void insert(MemberDTO member);
 }

@@ -9,14 +9,14 @@
         http://mybatis.org/schema/mybatis-spring http://mybatis.org/schema/mybatis-spring-1.2.xsd
         http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
         http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd">
-    
+    <context:annotation-config />
     <!-- Root Context: defines shared resources visible to all other web components -->
     <bean id="dataSource"
         class="org.springframework.jdbc.datasource.DriverManagerDataSource">
         <property name="driverClassName" value="com.mysql.jdbc.Driver" />
-        <property name="url" value="jdbc:mysql://localhost/test01?useSSL=false" />
-        <property name="username" value="root" />
-        <property name="password" value="dl0268" />
+        <property name="url" value="jdbc:mysql://aws2-rds.cozikp9vk1tc.us-east-2.rds.amazonaws.com/snsService" />
+        <property name="username" value="shyie" />
+        <property name="password" value="shyie111111" />
     </bean>        
     
     <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
@@ -29,12 +29,15 @@
     <bean id="sqlSession" class="org.mybatis.spring.SqlSessionTemplate">
     	<constructor-arg index="0" ref="sqlSessionFactory"/>
     </bean>
+    <bean id="JoinDAO" class="Join.service.impl.JoinDAO"/>
+   		 
+    <bean id="ServiceImpl" class="Join.service.impl.ServiceImpl"/>
     
+ 
+ 
   <!--   <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
 		<property name="basePackage" value="Join.service.impl.joinDAO" />
 	</bean> -->
-
-   	
 </beans>
  
 
