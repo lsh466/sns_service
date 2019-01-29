@@ -6,15 +6,28 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
 <mapper namespace="mapper.JoinMapper">	
 	
-	<select id="getid" parameterType="string" resultType="string">
+	<select id="getid" parameterType="hashmap" resultType="hashmap">
 		SELECT USER_ID
 		FROM USER_INFO
 		WHERE USER_ID = #{id}
 	</select>
 	
 	
-	<insert id="insertMember">
-	INSERT INTO USER_INFO(USERID, USERPW, USERNAME) VALUES('3434','33','44')
+	<insert id="memberInsert" parameterType="hashmap">
+	INSERT INTO USER_INFO(
+							USER_ID, 
+							USER_PW, 
+							USER_NAME,
+							USER_EMAIL,
+							USER_REGDATE
+						  ) 
+						  VALUES(
+							#{id},
+							#{pw1},
+							#{name},
+							#{email},
+							date(now())
+							)
 	</insert> 
 	
 </mapper>

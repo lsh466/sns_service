@@ -15,7 +15,6 @@
 			패스워드 : <input type="password" name="password" id="password"/><br>
 			<input type="button" name="btnLogin" id="btnLogin" value="로그인"/>
 			<input type="button" name="btnLoginFrm" id="btnLoginFrm" value="회원가입하기"/>
-			<!-- <p><a href="/loginForm/register.do">사용자 등록</a></p> -->
 		</div>
 	</form>
 </body>

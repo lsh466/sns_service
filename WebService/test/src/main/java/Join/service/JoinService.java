@@ -1,8 +1,13 @@
 package Join.service;
 
-import Member.MemberDTO;
+import java.util.HashMap;
+
+import javax.servlet.http.HttpServletRequest;
 
 public interface JoinService {
-	public String getId(String id);
-	public void insert(MemberDTO member);
+	//아이디 중복 확인
+	public HashMap<String, Object> getId(HashMap<String, Object> params);
+	
+	//회원가입
+	public HashMap<String, Object> memberInsert(HttpServletRequest request, HashMap<String, Object> params);
 }
