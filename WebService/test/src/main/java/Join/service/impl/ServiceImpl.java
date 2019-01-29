@@ -1,27 +1,23 @@
 package Join.service.impl;
 
-import java.awt.List;
 import java.util.HashMap;
-import java.util.Map;
 
+import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import Join.service.JoinService;
-import Member.MemberDTO;
 
 @Service
 public class ServiceImpl implements JoinService{
 
-	/*@Resource(name="JoinDAO")
-	private JoinDAO joindao;*/
-
+	@Resource(name="joinDao")
+	private JoinDAO joinDao;
 	//private Logger log = (Logger) LoggerFactory.getLogger(getClass());
 	
-	@Autowired
-	private JoinDAO joinDao;
+	/*@Autowired
+	private JoinDAO joinDao;*/
 	
 	//아이디 중복 확인하기
 	@Override
@@ -49,7 +45,7 @@ public class ServiceImpl implements JoinService{
 				result.put("data", "회원가입 되었습니다");
 			}else{
 				result.put("code", "001");
-				result.put("data", "회원가입이 실패했습니다. 다시 회원가입해주세요");
+				result.put("data", "회원가입에 실패했습니다. 다시 회원가입해주세요");
 			}
 		}catch(Exception e){
 			result.put("code", "999");

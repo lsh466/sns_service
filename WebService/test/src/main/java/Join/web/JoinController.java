@@ -2,12 +2,13 @@ package Join.web;
 
 import java.util.HashMap;
 
+import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -16,11 +17,17 @@ import Join.service.impl.ServiceImpl;
 @Controller
 public class JoinController {
 	
-	/*@Resource(name="JoinService")
-	private JoinService joinservice;*/
-	
-	@Autowired
+	@Resource(name="joinserviceImpl")
 	private ServiceImpl serviceImpl;
+	
+	/*@Autowired
+	private ServiceImpl serviceImpl;*/
+	
+	//회원가입 폼 view
+	@RequestMapping(value = "/loginForm.do", method = RequestMethod.GET)
+	public String loginForm(){
+		return "loginForm";
+	}
 	
 	@RequestMapping(value = "/loginForm/MemberJoin.do")
 	public ModelAndView loginForm(HttpServletRequest request,HttpServletResponse response, @RequestParam HashMap<String, Object> params){

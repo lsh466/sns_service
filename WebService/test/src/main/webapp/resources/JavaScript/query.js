@@ -3,12 +3,10 @@
  */
 
 $(document).ready( function(){
-	
 	//로그인 버튼
 	$("#btnLogin").click(function(){
 		goLogin();
 	})
-	
 	//회원가입하기 버튼
 	$("#btnLoginFrm").click(function(){
 		Reg();
@@ -23,6 +21,38 @@ $(document).ready( function(){
 //로그인하기
 function goLogin(){
 	
+	if($("#id").val()==null || $("#id").val() ==""){
+		alert("아이디를 입력해주세요");
+		$("#id").focus();
+		return false;
+	}
+	if($("#password").val()==null || $("#password").val()==""){
+		alert("패스워드를 입력해주세요");
+		$("#password").focus();
+		return false;
+	}
+	
+	var data = $("#loginFrm").serialize();
+	
+	$.ajax({
+		type: "POST",
+		dataType : "json",
+		url : "/goLogin.do",
+		data : data,
+		success:function(result){
+			if(result.RESULT_CODE == "SUCCESS"){
+				alert(result.RESULT_MSG);
+				location.href="main.do"
+			}else{
+				alert(result.RESULT_MSG);
+			}
+		},
+		error:function(error){
+			if(result.RESULT_CODE =="FAILURE"){
+				alert(result.RESULT_MSG);
+			}
+		}
+	});//Ajax 통신 끝
 }
 //회원가입 폼으로 가기
 function Reg(){
@@ -58,7 +88,7 @@ function goReg(){
 	
 	$.ajax({
 		async:false,
-		type:"GET",
+		type:"POST",
 		dataType: "json",
 		url:"/loginForm/MemberJoin.do",
 		data:data,
@@ -76,10 +106,10 @@ function goReg(){
 				$("#id").focus();
 			}
 		},
-		error:function(erro){
-			if(erro.RESULT_CODE == "FAILURE"){
-				alert(erro.RESULT_MSG);
+		error:function(error){
+			if(error.RESULT_CODE == "FAILURE"){
+				alert(error.RESULT_MSG);
 			}
 		}
-	});
+	});//Ajax 통신 끝
 }

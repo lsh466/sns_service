@@ -5,7 +5,9 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
  
 <configuration>
    <mappers >
-        <mapper resource ="mappers/JoinMapper.xml"/>
+   		<mapper resource = "mappers/*_SQL.xml"/>
+        <!-- <mapper resource ="mappers/JoinMapper.xml"/>
+        <mapper resource ="mappers/LoginMapper.xml"/>  -->
     </mappers >
 
 
