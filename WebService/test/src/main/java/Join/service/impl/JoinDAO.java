@@ -18,11 +18,15 @@ public class JoinDAO {
 	//private Logger log = (Logger) LoggerFactory.getLogger(getClass());
 	
 	//아이디 중복 확인
-	public HashMap<String, Object> getId(HashMap<String, Object> params){
+	/*public HashMap<String, Object> selectById(HashMap<String, Object> params){
+		System.out.println("JoinDAO class()의 id : "+params.get("id"));
+		return sqlSession.selectOne(namespace+".getid",params);
+	}*/
+	
+	public String selectById(HashMap<String, Object> params){
 		System.out.println("JoinDAO class()의 id : "+params.get("id"));
 		return sqlSession.selectOne(namespace+".getid",params);
 	}
-	
 	//회원가입
 	public int memberInsert(HashMap<String,  Object> params){
 		return sqlSession.insert(namespace+".memberInsert",params);

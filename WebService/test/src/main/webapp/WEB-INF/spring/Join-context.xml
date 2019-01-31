@@ -10,4 +10,6 @@
 	<context:annotation-config />
     <bean name="joinDao" class="Join.service.impl.JoinDAO"/>
     <bean name="joinserviceImpl" class="Join.service.impl.ServiceImpl"/>	
+    
+    
 </beans>

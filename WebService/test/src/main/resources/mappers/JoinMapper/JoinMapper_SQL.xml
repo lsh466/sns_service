@@ -6,7 +6,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
 <mapper namespace="mapper.JoinMapper">	
 	
-	<select id="getid" parameterType="hashmap" resultType="hashmap">
+	<select id="getid" parameterType="hashmap" resultType="string">
 		SELECT USER_ID
 		FROM USER_INFO
 		WHERE USER_ID = #{id}

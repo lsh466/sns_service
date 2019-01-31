@@ -4,8 +4,11 @@ import java.util.HashMap;
 
 import javax.annotation.Resource;
 
+import org.springframework.stereotype.Service;
+
 import Login.service.LoginService;
 
+@Service
 public class LoginServiceImpl implements LoginService{
 
 	@Resource(name="loginDao")

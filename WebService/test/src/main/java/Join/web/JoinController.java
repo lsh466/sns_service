@@ -37,28 +37,22 @@ public class JoinController {
 		System.out.println("parms 값 ==> "+params);
 		try{
 			
-			HashMap<String, Object> result = serviceImpl.getId(params);
-			System.out.println("result 값은 : "+result);
-			HashMap<String, Object> join;
-			//String str = (String)result.get("data");
-			if(result.get("data") != null){
+			HashMap<String, Object> result = serviceImpl.memberInsert(request, params);
+			String code = (String)result.get("code");
+			
+			if("000".equals(code)){
+				mav.addObject("RESULT_CODE","SUCCESS");
+				mav.addObject("RESULT_MSG", result.get("data"));
+			}else if("001".equals(code)){
 				mav.addObject("RESULT_CODE", "FAILURE");
-				mav.addObject("RESULT_MSG", "아이디가 중복됩니다. 다른 아이디를 입력해주세요");
+				mav.addObject("RESULT_MSG", result.get("data"));
+			}else if("002".equals(code)){
+				mav.addObject("RESULT_CODE", "FAILURE");
+				mav.addObject("RESULT_MSG", result.get("data"));
 			}else{
-				System.out.println("회원가입하러 들어왔음");
-				join = serviceImpl.memberInsert(request, params);
-				String code = (String)join.get("code");
-				if("000".equals(code)){
-					mav.addObject("RESULT_CODE","SUCCESS");
-					mav.addObject("RESULT_MSG", join.get("data"));
-				}else if("001".equals(code)){
-					mav.addObject("RESULT_CODE", "FAILURE");
-					mav.addObject("RESULT_MSG", join.get("data"));
-				}else{
-					mav.addObject("RESULT_CODE", "ERROR");
-					mav.addObject("RESULT_MSG", join.get("data"));
-				}//회원가입 else
-			}// 아이디 중복확인 else
+				mav.addObject("RESULT_CODE", "ERROR");
+				mav.addObject("RESULT_MSG", result.get("data"));
+			}//else 회원가입 insert
 		}catch(Exception e){
 			System.out.println("Exception() ");
 			mav.addObject("RESULT_CODE","FAILURE");
