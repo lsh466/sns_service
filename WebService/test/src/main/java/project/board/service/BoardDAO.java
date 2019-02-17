@@ -15,6 +15,9 @@ public class BoardDAO {
 		@Autowired
 		private SqlSession sqlSession;
 		
+		@Autowired
+		private SqlSession sqlSession2;
+		
 		public List<BoardDTO> showBoardList(){
 			
 			List<BoardDTO> result = sqlSession.selectList("board.showBoardList");
