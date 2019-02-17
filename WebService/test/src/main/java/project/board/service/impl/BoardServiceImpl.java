@@ -1,5 +1,6 @@
 package project.board.service.impl;
 
+import java.util.HashMap;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,10 +15,17 @@ public class BoardServiceImpl implements BoardService {
 	
 	@Autowired
 	BoardDAO boardDao;
+	
 	@Override
 	public List<BoardDTO> showBoardList() {
 		// TODO Auto-generated method stub
 		return boardDao.showBoardList();
+	}
+	
+	@Override
+	public BoardDTO showBoardItem(HashMap<String, Integer> params) {
+		// TODO Auto-generated method stub
+		return boardDao.showBoardItem(params);
 	}
 
 }

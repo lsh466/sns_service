@@ -22,4 +22,9 @@ public class BoardDAO {
 		
 			return result;
 		}
+		public BoardDTO showBoardItem(HashMap<String, Integer> params) {
+			BoardDTO result = sqlSession.selectOne("board.showBoardItem", params);
+			System.out.println(result.toString());
+			return result;
+		}
 }

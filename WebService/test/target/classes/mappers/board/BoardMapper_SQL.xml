@@ -17,6 +17,12 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		FROM BOARD_INFO
 	</select>
 	
+	<select id="showBoardItem" resultType="project.board.DTO.BoardDTO">
+		SELECT *
+		FROM BOARD_INFO
+		WHERE board_index = #{index}
+	</select>
+	
 	
 	<insert id="memberInsert" parameterType="hashmap">
 	INSERT INTO USER_INFO(
