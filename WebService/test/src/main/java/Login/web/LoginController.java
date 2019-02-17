@@ -117,6 +117,7 @@ public class LoginController {
 		}catch(Exception e){
 			mav.addObject("RESULT_CODE", "FAILURE");
 			mav.addObject("RESULT_MSG", e.getMessage());
+
 		}
 		
 		return mav;
