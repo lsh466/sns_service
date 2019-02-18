@@ -33,17 +33,6 @@ public class LoginController {
 	@RequestMapping(value="/main.do")
 	public String main(HttpServletRequest request, Model model){
 		System.out.println("main 페이지 요청");
-		/* 인터셉터로 인해서 없어도 됨
-		 * 
-		 * HttpSession session = request.getSession();
-		String session_id = (String) session.getAttribute("id");
-		
-		if(session_id == null) {
-			return "redirect:/";
-		}
-		else {
-			model.addAttribute("id", session_id);
-		}*/
 		
 		return "main";
 		
@@ -98,17 +87,13 @@ public class LoginController {
 		
 		try{
 			MemberDTO result = loginserviceImpl.chkIdPw(params);
-			System.out.println("LoginController()의 result.getUSER_ID :  "+result.getUSER_ID()); 
-			//result = {data={USER_ID=t001, USER_PW=t001}}
-			
-			
-			//if(result.get("data") != null)
+			//MemberDTO result = null;
 			if(result != null)
 			{
 				mav.addObject("RESULT_CODE","SUCCESS");
 				mav.addObject("RESULT_MSG", "로그인에 성공했습니다.");
 				session.setAttribute("member", result);
-				//mav.addObject("member", result);
+				
 				
 			}else{
 				mav.addObject("RESULT_CODE","FAILURE");

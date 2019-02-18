@@ -39,6 +39,7 @@ public class MemberDTO {
 	public void setUSER_REGDATE(String uSER_REGDATE) {
 		USER_REGDATE = uSER_REGDATE;
 	}
+
 	
 	
 }
