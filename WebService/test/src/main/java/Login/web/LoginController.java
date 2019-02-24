@@ -42,22 +42,7 @@ public class LoginController {
 	public ModelAndView login(HttpServletRequest request){
 		System.out.println("login 페이지 요청");
 		ModelAndView mav = new ModelAndView();
-	
 		mav.setViewName("login");
-		
-		
-		/* 인터셉터로 인해서 없어도 됨
-	
-		 * HttpSession session = request.getSession();
-		String session_id = (String) session.getAttribute("id");
-		if(session_id == null) {
-			mav.setViewName("login");
-		}
-		else {
-			mav.setViewName("main");
-		}*/
-		
-		
 		return mav;
 	}
 	
@@ -84,7 +69,6 @@ public class LoginController {
 		System.out.println("===============LoginController()===============");
 		System.out.println("LoginController의 params 값 "+params);
 		ModelAndView mav = new ModelAndView("jsonView");
-		
 		try{
 			MemberDTO result = loginserviceImpl.chkIdPw(params);
 			//MemberDTO result = null;
@@ -93,7 +77,7 @@ public class LoginController {
 				mav.addObject("RESULT_CODE","SUCCESS");
 				mav.addObject("RESULT_MSG", "로그인에 성공했습니다.");
 				session.setAttribute("member", result);
-				
+				mav.setViewName("main");
 				
 			}else{
 				mav.addObject("RESULT_CODE","FAILURE");
