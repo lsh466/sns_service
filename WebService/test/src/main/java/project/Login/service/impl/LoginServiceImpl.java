@@ -1,14 +1,18 @@
-package Login.service.impl;
+package project.Login.service.impl;
 
 import java.util.HashMap;
 
 import javax.annotation.Resource;
 
-import Login.service.LoginService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
+import project.Login.service.LoginService;
+
+@Component
 public class LoginServiceImpl implements LoginService{
 
-	@Resource(name="loginDao")
+	@Autowired
 	private LoginDAO loginDao;
 	
 	//로그인 아이디, 비밀번호 확인

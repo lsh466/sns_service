@@ -1,18 +1,20 @@
-package Join.service.impl;
+package project.Join.service.impl;
 
 import java.util.HashMap;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
-import Join.service.JoinService;
+import project.Join.service.JoinService;
 
-@Service
+@Component
 public class ServiceImpl implements JoinService{
 
-	@Resource(name="joinDao")
+	@Autowired
 	private JoinDAO joinDao;
 	//private Logger log = (Logger) LoggerFactory.getLogger(getClass());
 	

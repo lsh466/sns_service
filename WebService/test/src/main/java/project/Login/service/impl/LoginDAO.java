@@ -1,10 +1,12 @@
-package Login.service.impl;
+package project.Login.service.impl;
 
 import java.util.HashMap;
 
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
+@Service("loginDao")
 public class LoginDAO {
 
 	private static final String namespace = "mapper.LoginMapper";

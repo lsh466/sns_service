@@ -1,4 +1,4 @@
-package Member;
+package project.Member;
 
 public class MemberDTO {
 	private String id;

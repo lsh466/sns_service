@@ -1,4 +1,4 @@
-package Join.web;
+package project.Join.web;
 
 import java.util.HashMap;
 
@@ -6,19 +6,21 @@ import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
-import Join.service.impl.ServiceImpl;
+import project.Join.service.JoinService;
+import project.Join.service.impl.ServiceImpl;
 
 @Controller
 public class JoinController {
 	
-	@Resource(name="joinserviceImpl")
-	private ServiceImpl serviceImpl;
+	@Autowired
+	private JoinService joinService;
 	
 	/*@Autowired
 	private ServiceImpl serviceImpl;*/
@@ -37,7 +39,7 @@ public class JoinController {
 		System.out.println("parms 값 ==> "+params);
 		try{
 			
-			HashMap<String, Object> result = serviceImpl.getId(params);
+			HashMap<String, Object> result = joinService.getId(params);
 			System.out.println("result 값은 : "+result);
 			HashMap<String, Object> join;
 			//String str = (String)result.get("data");
@@ -46,7 +48,7 @@ public class JoinController {
 				mav.addObject("RESULT_MSG", "아이디가 중복됩니다. 다른 아이디를 입력해주세요");
 			}else{
 				System.out.println("회원가입하러 들어왔음");
-				join = serviceImpl.memberInsert(request, params);
+				join = joinService.memberInsert(request, params);
 				String code = (String)join.get("code");
 				if("000".equals(code)){
 					mav.addObject("RESULT_CODE","SUCCESS");

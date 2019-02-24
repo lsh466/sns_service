@@ -9,7 +9,7 @@
  <script type="text/javascript" src="/resources/JavaScript/query.js"></script> 
 </head>
 <body>
-	<form name = "loginFrm" id = "loginFrm" action="">
+	<form name = "loginFrm" id = "loginFrm" action="/goLogin.do">
 		<div>
 			아이디 : <input type="text" name="id" id="id"/><br>
 			패스워드 : <input type="password" name="password" id="password"/><br>
