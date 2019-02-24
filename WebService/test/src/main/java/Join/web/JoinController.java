@@ -1,11 +1,13 @@
 package Join.web;
 
 import java.util.HashMap;
+import java.util.logging.Logger;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -17,6 +19,7 @@ import Join.service.impl.ServiceImpl;
 @Controller
 public class JoinController {
 	
+
 	@Resource(name="joinserviceImpl")
 	private ServiceImpl serviceImpl;
 	
@@ -32,7 +35,7 @@ public class JoinController {
 	@RequestMapping(value = "/loginForm/MemberJoin.do")
 	public ModelAndView loginForm(HttpServletRequest request,HttpServletResponse response, @RequestParam HashMap<String, Object> params){
 		
-		System.out.println("==============JoinController()============");
+		System.out.println("==============JoinController()========");
 		ModelAndView mav = new ModelAndView("jsonView");
 		System.out.println("parms 값 ==> "+params);
 		try{

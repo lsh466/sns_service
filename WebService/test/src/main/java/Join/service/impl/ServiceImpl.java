@@ -6,6 +6,7 @@ import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
 import Join.service.JoinService;
@@ -33,6 +34,7 @@ public class ServiceImpl implements JoinService{
 	}*/
 
 	@Override
+	@Transactional(propagation = Propagation.REQUIRED, rollbackFor={Exception.class})
 	public HashMap<String, Object> memberInsert(HttpServletRequest request, HashMap<String, Object> params) {
 		// TODO Auto-generated method stub
 		HashMap<String, Object> result = new HashMap<String, Object>();
