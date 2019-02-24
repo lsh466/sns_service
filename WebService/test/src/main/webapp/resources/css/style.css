@@ -1,0 +1,26 @@
+body {
+    padding:70px;
+}
+table {
+    width: 100%;
+    border:1px solid #444444;
+    border-collapse: collapse;
+}
+th, td{
+    border:1px solid #444444;
+    text-align: center;
+}
+
+#thIndex, #thCount {
+    width:10%;
+}
+#thWriter {
+    width:15%;
+}
+
+#thDate {
+    width:20%;
+}
+h1 {
+    text-align: center;
+}
