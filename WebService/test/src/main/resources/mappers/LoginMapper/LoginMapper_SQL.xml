@@ -6,8 +6,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
 <mapper namespace="mapper.LoginMapper">	
 	
-	<select id ="chkIdPw" parameterType ="hashmap" resultType = "hashmap">
-		SELECT USER_ID, USER_PW
+	<select id ="chkIdPw" parameterType ="hashmap" resultType = "project.Member.MemberDTO">
+		SELECT *
 		FROM USER_INFO
 		WHERE USER_ID = #{id}
 		AND USER_PW = #{password}

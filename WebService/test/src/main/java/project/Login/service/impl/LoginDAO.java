@@ -6,6 +6,8 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import project.Member.MemberDTO;
+
 @Service("loginDao")
 public class LoginDAO {
 
@@ -14,10 +16,10 @@ public class LoginDAO {
 	@Autowired
 	private SqlSession sqlSession;
 	
-	public HashMap<String, Object> chkIdPw(HashMap<String, Object> params){
+	public MemberDTO chkIdPw(HashMap<String, Object> params){
 		System.out.println("LoginDAO class params 값 : "+params);
-		HashMap<String, Object> result = sqlSession.selectOne(namespace+".chkIdPw",params);
-		System.out.println(result);
+		MemberDTO result = sqlSession.selectOne(namespace+".chkIdPw",params);
+		System.out.println("LoginDAO 종료");
 		return result;
 	}
 }

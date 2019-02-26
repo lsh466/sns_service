@@ -41,8 +41,8 @@ function goLogin(){
 		data : data,
 		success:function(result){
 			if(result.RESULT_CODE == "SUCCESS"){
-//				alert(result.RESULT_MSG);
-//				location.href="main.do"
+				alert(result.RESULT_MSG);
+				location.href="main.do"
 			}else{
 				alert(result.RESULT_MSG);
 			}

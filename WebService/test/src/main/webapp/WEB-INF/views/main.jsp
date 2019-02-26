@@ -7,11 +7,15 @@
 <title>Insert title here</title>
 </head>
 <body>
-<%
-	String id=(String)session.getAttribute("id");
-	String password=(String)session.getAttribute("password");
-%>
-<h2>${id}</h2>님 환영합니다!!
-
+	<h1>${member.USER_ID}</h1>
+	<br>
+	<ol>
+		<li>이름 ${member.USER_NAME}</li>
+		<li>비밀번호 ${member.USER_PW}</li>
+		<li>이메일 ${member.USER_EMAIL}</li>
+		<li>가입날짜 ${member.USER_REGDATE}</li>
+	</ol>
+	
+	<a href="logout.do">로그아웃</a>
 </body>
 </html>
