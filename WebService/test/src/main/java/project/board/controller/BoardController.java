@@ -35,9 +35,7 @@ public class BoardController {
 	public String showBoardList(Model model) throws JsonGenerationException, JsonMappingException, IOException {
 		List<BoardDTO> boardList = boardService.showBoardList();
 		
-		JsonArray result = (JsonArray) new Gson().toJsonTree(boardList,
-		            new TypeToken<List<BoardDTO>>() {
-		            }.getType());
+		JsonArray result = (JsonArray) new Gson().toJsonTree(boardList, new TypeToken< List<BoardDTO> >(){}.getType());
 		
 		model.addAttribute("list", result);
 		
@@ -47,8 +45,10 @@ public class BoardController {
 	@RequestMapping(value="/writeBoardContent.do", method=RequestMethod.GET)
 	public String writeBoardContent(Model model, HttpServletRequest request, @RequestParam HashMap<String, Integer> params ) {
 		BoardDTO item = boardService.showBoardItem(params);
-		model.addAttribute("content",request.getParameter("content"));
+		System.out.println(params);
+		//model.addAttribute("content",request.getParameter("content"));
 		model.addAttribute("item", item);
+		System.out.println(item.getBoard_content());
 		
 		return "boardcontent";
 	}

@@ -1,7 +1,3 @@
-/**
- * 
- */
-
 $(document).ready( function(){
 	//로그인 버튼
 	$("#btnLogin").click(function(){
@@ -20,7 +16,7 @@ $(document).ready( function(){
 
 //로그인하기
 function goLogin(){
-	
+
 	if($("#id").val()==null || $("#id").val() ==""){
 		alert("아이디를 입력해주세요");
 		$("#id").focus();
@@ -33,7 +29,7 @@ function goLogin(){
 	}
 	
 	var data = $("#loginFrm").serialize();
-	
+
 	$.ajax({
 		type: "POST",
 		dataType : "json",
@@ -56,14 +52,15 @@ function goLogin(){
 }
 //회원가입 폼으로 가기
 function Reg(){
+	
 	document.location.href = "loginForm.do";
 }
 
 //회원가입하기
 function goReg(){
-	var data={};
+	var data={}; //data-> form에 적은 놈들
 	data = $("#dataFrm").serialize();
-	//alert(data);
+	alert(data);
 	
 	if($("#id").val()==null || $("#id").val() ==""){
 		alert("아이디를 입력해주세요");
@@ -91,11 +88,11 @@ function goReg(){
 		type:"POST",
 		dataType: "json",
 		url:"/loginForm/MemberJoin.do",
-		data:data,
+		data:data,   //form에 적었던 애들
 		success:function(result){
 			if(result.RESULT_CODE == "SUCCESS"){
 				alert(result.RESULT_MSG);
-				location.href="";
+				location.href="login.do";
 			}else if(result.RESULT_CODE == "FAILURE"){
 				alert(result.RESULT_MSG);
 				$("#id").val('');

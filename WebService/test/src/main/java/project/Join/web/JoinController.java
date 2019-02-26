@@ -5,6 +5,7 @@ import java.util.HashMap;
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -27,7 +28,19 @@ public class JoinController {
 	
 	//회원가입 폼 view
 	@RequestMapping(value = "/loginForm.do", method = RequestMethod.GET)
-	public String loginForm(){
+	public String loginForm(HttpServletRequest request){
+		System.out.println("loginForm 페이지 요청");
+		/* 인터셉터로 인해서 없어도 됨
+		 * 
+		 * HttpSession session = request.getSession();
+		String session_id = (String) session.getAttribute("id");
+		
+		if(session_id == null) {
+			return "loginForm";
+		}
+		else {
+			return "main";
+		}*/
 		return "loginForm";
 	}
 	
