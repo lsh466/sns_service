@@ -1,32 +1,41 @@
-package project.Login.service.impl;
+package Login.service.impl;
 
 import java.util.HashMap;
 
 import javax.annotation.Resource;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Repository;
 
-import project.Login.service.LoginService;
+import Login.service.LoginService;
+import Member.MemberDTO;
 
-@Component
+@Repository
 public class LoginServiceImpl implements LoginService{
 
-	@Autowired
+	@Resource(name="loginDao")
 	private LoginDAO loginDao;
+
+	@Override
+	public MemberDTO chkIdPw(HashMap<String, Object> param) {
+		return loginDao.chkIdPw(param);
+	}
+	
 	
 	//로그인 아이디, 비밀번호 확인
-	@Override
+	/*@Override
 	public HashMap<String, Object> chkIdPw(HashMap<String, Object> params) {
 		// TODO Auto-generated method stub
 		System.out.println("LoginServiceImpl class 동작");
 		HashMap<String, Object> result = new HashMap<String, Object>();
 		HashMap<String, Object> getList = loginDao.chkIdPw(params);
 		
-		//System.out.println("아이디와 비밀번호는 ==> "+getList);
 		result.put("data", getList);
+		
+		//result = {data={USER_ID=t001, USER_PW=t001}}
+		System.out.println("LoginServiceImpl class result값" + result);
+		
 		return result;
-	}
+	}*/
 
 	
 	

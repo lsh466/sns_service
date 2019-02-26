@@ -1,12 +1,14 @@
-package project.Login.service;
+package Login.service;
 
 import java.util.HashMap;
 
-import org.springframework.stereotype.Service;
+import Member.MemberDTO;
 
-@Service("loginService")
 public interface LoginService {
-
+	
+	public MemberDTO chkIdPw(HashMap<String, Object> dto);
+	
+	
 	//아이디, 비밀번호 확인
-	public HashMap<String, Object> chkIdPw(HashMap<String, Object> params);
+	//public MemberDTO chkIdPw(HashMap<String, Object> params);
 }

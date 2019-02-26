@@ -26,4 +26,21 @@
 	<!-- <context:component-scan base-package="com.skuniv.kr" /> -->
 	<context:component-scan base-package="project.*" />
 	
+
+
+	<interceptors>
+		<interceptor>
+			<mapping path="/main.do"/>
+			<beans:bean class="Login.web.LoginInterceptor"/>
+		</interceptor>
+		
+		<interceptor>
+			<mapping path="/loginForm.do"/>
+			<mapping path="/login.do"/>
+			<mapping path="/"/>
+			<beans:bean class="Join.web.JoinInterceptor"/>
+		</interceptor>
+		
+	</interceptors>
+	 
 </beans:beans>

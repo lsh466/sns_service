@@ -32,8 +32,8 @@
     var titleContainer = document.getElementById('titleP');
     var writerContatiner = document.getElementById('writerP');
     var contentContainer = document.getElementById('contentP');
-
-    contentContainer.innerHTML = '${content}';
+	console.log('${item.board_content}');
+    contentContainer.innerHTML = '${item.board_content}';
     </script>
 
 </body>

@@ -1,14 +1,14 @@
-package project.Join.service.impl;
+package Join.service.impl;
 
 import java.util.HashMap;
-
-import javax.annotation.Resource;
 
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-@Service("joinDao")
+
+
+@Service
 public class JoinDAO {
 
 	@Autowired
