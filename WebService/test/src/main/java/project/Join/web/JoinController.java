@@ -29,18 +29,6 @@ public class JoinController {
 	//회원가입 폼 view
 	@RequestMapping(value = "/loginForm.do", method = RequestMethod.GET)
 	public String loginForm(HttpServletRequest request){
-		System.out.println("loginForm 페이지 요청");
-		/* 인터셉터로 인해서 없어도 됨
-		 * 
-		 * HttpSession session = request.getSession();
-		String session_id = (String) session.getAttribute("id");
-		
-		if(session_id == null) {
-			return "loginForm";
-		}
-		else {
-			return "main";
-		}*/
 		return "loginForm";
 	}
 	
